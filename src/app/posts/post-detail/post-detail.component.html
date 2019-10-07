@@ -1,0 +1,35 @@
+
+<div class="container">
+  <div class="row">
+    <p class="links" [routerLink]="['/posts']"  >Regresar</p>
+  </div>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Handle</th>
+        <th>Tal</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let i of detailArray[0]">
+      <tr>
+        <td>{{i.author}}</td>
+        <td>{{i.title}}</td>
+        <td>{{i.description}}</td>
+        <td>{{i.country}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div>
+    <ul *ngFor="let comment of arr3">
+      <li>
+        {{comment.date}}
+      </li>
+    </ul>
+  </div>
+
+
+</div>

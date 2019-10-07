@@ -1,0 +1,57 @@
+
+
+<div class="row">
+  <div class="col">
+      <h1 style="text-align: center; margin-top: 2rem">Posts</h1>
+  </div>
+  
+</div>
+
+  <div class="container">
+    <div class="col-sm">
+    <label for="">Filter By Author </label>
+      <input type="text" class="form-control" [(ngModel)]="userFilter.author" placeholder="author">    
+   </div>
+
+  
+  <div class="col-xs-12" style="margin-top: 3rem">
+
+    <table class="table table-bordered table-hover">
+      <thead class="thead-dark">
+        <tr >
+
+          <th  scope="col">Title</th>
+          <th scope="col">Description</th>
+          <th scope="col">Date</th>
+          <th scope="col">Country</th>          
+          <th scope="col">Id</th>
+          <th scope="col">Author</th>
+          
+
+
+        </tr>
+      </thead>
+      <tbody *ngFor="let i of postsArray[0] 
+      | paginate: { itemsPerPage: 10, currentPage: p } 
+      | filterBy: userFilter">
+        <tr (click)="getId(i.id)">
+
+          <td><a [routerLink]="['/posts', i.id]" >{{i.title}}</a> </td>
+          <td>{{i.description}}</td>
+          <td>{{i.date}}</td>
+          <td>{{i.country}}</td>
+          <td >{{i.id}}</td>
+          <td>{{i.author}}</td>
+    
+    
+
+        </tr>
+
+      </tbody>
+    </table>
+    <pagination-controls style="padding: 1rem"
+    (pageChange)="p = $event"
+    previousLabel="Anterior"
+    nextLabel="Siguiente"></pagination-controls>
+  </div>
+</div>
